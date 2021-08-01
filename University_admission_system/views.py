@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from University_admission_system.templatetags import CassandraOperation
+# from templatetags import CassandraOperation
+
 def home(request):
     return render(request,'index.html')
 
@@ -16,17 +17,12 @@ def signin(request):
         passw = request.POST['SigninInputPassword1']
         # user = authenticate(username=usern, password=passw)
         print(signintype,email, passw)
-        # if user is not None:
-        #     login(request, user)
-        #     print("success")
-        #     messages.success(request, 'Successfully Logged In')
-        #     return redirect('home')
-        #
-        # else:
-        #     messages.error(request, 'Invalid Creditions')
-        #     print("fail")
-        #     return redirect('home')
-        return HttpResponse("Login Successfully")
+        if signintype=='faculty':
+            return render(request,'faculty_page.html')
+        else:
+            cdb = CassandraOperation.CassandraManagement()
+            print(cdb)
+            return render(request,'student_info.html')
 
 
 def signup(request):
