@@ -41,3 +41,18 @@ def signup(request):
         # messages.success(request,'Your account have been Created')
         print(signuptype,fname,email,pass1,pass2)
         return HttpResponse("Signup Successfully")
+
+def faculty_change_password(request):
+    if request.method=='POST':
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        return HttpResponse("Password Change Successfully")
+
+def faculty_home_page(request):
+    return render(request,'faculty_page.html')
+
+def faculty_profile_page(request):
+    return render(request,'faculty_profile.html')
+
+def view(request):
+    return render(request,'view.html')

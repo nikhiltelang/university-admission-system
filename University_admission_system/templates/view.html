@@ -1,0 +1,316 @@
+{%extends 'faculty_base.html'%}
+{%load static%}
+{%block body%}
+
+
+<div class="container">
+    <div class="p-3 mb-2 bg-success text-white">
+        <div class="row">
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{%static 'profile_pic/profile_pic.jpg'%}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="col">
+                <div class="col">
+                    <label for="application_id">Application ID : API000000001</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Name : Nikhil Namdeo Telang</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Status : Approved</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Address : Nagpur</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Mobile Number : 9822269762</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col">
+                    <label for="application_id">Application ID : API000000001</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Name : Nikhil Namdeo Telang</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Status : Approved</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Address : Nagpur</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Mobile Number : 9822269762</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                </div>
+                <div class="col">
+                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>Personal Details</h3>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Aadhar_card_no" class="form-label">Aadhar Card Number</label>
+            <input type="text" class="form-control disabled" id="Aadhar_card_no" name="Aadhar_card_no">
+        </div>
+        <div class="col-1 mb-3">
+            <label for="aadhar_status_btn" class="form-label">Status</label>
+            <button type="button" class="btn btn-success" name="aadhar_status_btn"
+                id="aadhar_status_btn">Verified</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="fullname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="fullname" name="fullname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="email" class="form-label">Email Id</label>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="col-1 mb-3">
+            <label for="email_status_btn" class="form-label">Status</label>
+            <button type="button" class="btn btn-success" name="email_status_btn"
+                id="email_status_btn">Verified</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="mobile" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile">
+        </div>
+        <div class="col-1 mb-3">
+            <label for="mobile_status_btn" class="form-label">Status</label>
+            <button type="button" class="btn btn-success" name="mobile_status_btn"
+                id="mobile_status_btn">Verified</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="dateofbirth" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" id="dateofbirth" name="dateofbirth">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="age" name="age">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Gender--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">Applicant Full Name (As Per
+                SSC Marksheet/ L.C.)</label>
+            <input type="text" class="form-control" id="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                name="Applicant_Full_Name_As_Per_SSC_Marksheet">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Guardian_Mobile_No" class="form-label">Parent's/Guardian Mobile No</label>
+            <input type="text" class="form-control" id="Guardian_Mobile_No" name="Guardian_Mobile_No">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Marital_Status" class="form-label">Marital Status</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Marital Status--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+    </div>
+    <h3>Religion Details</h3>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="religion" class="form-label">Religion</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Religion--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+    </div>
+    <h3>Caste Details</h3>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Caste_Category" class="form-label">Caste Category</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Caste Category--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Caste" class="form-label">Caste</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Caste--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Do_you_have_Caste_Certificate?" class="form-label">Do you have Caste
+                Certificate?</label>
+            <input type="text" class="form-control" id="Do_you_have_Caste_Certificate"
+                name="Do_you_have_Caste_Certificate">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Caste_Certificate_Number" class="form-label">Caste Certificate Number</label>
+            <input type="text" class="form-control" id="Caste_Certificate_Number" name="Caste_Certificate_Number">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Issuing_District" class="form-label">Issuing District</label>
+            <input type="text" class="form-control" id="Issuing_District" name="Issuing_District">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Applicant_Name" class="form-label">Applicant Name</label>
+            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
+            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Caste_Certificate" class="form-label">Caste Certificate</label>
+            <input type="text" class="form-control" id="Caste_Certificate" name="Caste_Certificate">
+        </div>
+        <div class="col-2 mb-3">
+            <label for="view_caste_certificate" class="form-label">View Document</label>
+            <button type="button" class="btn btn-primary" id="view_caste_certificate" name="view_caste_certificate">View
+                Document</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Caste_Issuing_Date" class="form-label">Issuing Date</label>
+            <input type="date" class="form-control" id="Caste_Issuing_Date" name="Caste_Issuing_Date">
+        </div>
+    </div>
+    <h3>Income Details</h3>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Family_Annual_Income" class="form-label">Family Annual Income</label>
+            <input type="text" class="form-control" id="Family_Annual_Income" name="Family_Annual_Income">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Do_you_have_Income_Certificate?" class="form-label">Do you have Income Certificate?</label>
+            <input type="text" class="form-control" id="Do_you_have_Income_Certificate"
+                name="Do_you_have_Income_Certificate">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Income_Certificate_No" class="form-label">Income Certificate No</label>
+            <input type="text" class="form-control" id="Income_Certificate_No" name="Income_Certificate_No">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Income_Issuing_Authority" class="form-label">Issuing Authority</label>
+            <input type="text" class="form-control" id="Income_Issuing_Authority" name="Income_Issuing_Authority">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Income_Certificate" class="form-label">Income Certificate</label>
+            <input type="text" class="form-control" id="Income_Certificate" name="Income_Certificate">
+        </div>
+        <div class="col-2 mb-3">
+            <label for="view_income_certificate" class="form-label">View Document</label>
+            <button type="button" class="btn btn-primary" id="view_income_certificate"
+                name="view_income_certificate">View
+                Document</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Income_Issuing_Date" class="form-label">Issuing Date</label>
+            <input type="date" class="form-control" id="Income_Issuing_Date" name="Income_Issuing_Date">
+        </div>
+    </div>
+    <h3>Domicile Details</h3>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Are_you_Domicile_of_Maharashtra" class="form-label">Are you Domicile of Maharashtra /
+                Maharashtra-Karnataka Border ?</label>
+            <input type="text" class="form-control" id="Are_you_Domicile_of_Maharashtra"
+                name="Are_you_Domicile_of_Maharashtra">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Do_you_have_Domicile_Certificate" class="form-label">Do you have Domicile Certificate ?</label>
+            <input type="text" class="form-control" id="Do_you_have_Domicile_Certificate"
+                name="Do_you_have_Domicile_Certificate">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Relationship_Type" class="form-label">Relationship Type</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>--Select Relationship--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Domicile_Certificate_No" class="form-label">Domicile Certificate No</label>
+            <input type="text" class="form-control" id="Domicile_Certificate_No" name="Domicile_Certificate_No">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Applicant_Name" class="form-label">Applicant Name</label>
+            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
+            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="domicile_Issuing_Date" class="form-label">Issuing Date</label>
+            <input type="date" class="form-control" id="domicile_Issuing_Date" name="domicile_Issuing_Date">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="Domicile_Certificate" class="form-label">Domicile Certificate</label>
+            <input type="text" class="form-control" id="Domicile_Certificate" name="Domicile_Certificate">
+        </div>
+        <div class="col-2 mb-3">
+            <label for="view_domicile_certificate" class="form-label">View Document</label>
+            <button type="button" class="btn btn-primary" id="view_domicile_certificate"
+                name="view_domicile_certificate">View
+                Document</button>
+        </div>
+
+    </div>
+</div>
+{%endblock%}
