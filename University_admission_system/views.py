@@ -5,7 +5,7 @@ import uuid
 # from templatetags import CassandraOperation
 
 def home(request):
-    return render(request,'index.html')
+    return render(request,'student_applying.html')
 
 # def contact(request):
 #     print("jump here")
@@ -75,8 +75,144 @@ def view(request):
     cdb = CassandraOperation.CassandraManagement()
     personal_data = cdb.select_student_info()
     return render(request,'view.html',{"personal_data":personal_data[0],"religion_data":personal_data[1],"caste_data":personal_data[2],
-    "income_data":personal_data[3],"domicile_data":personal_data[4],"paddress_data":personal_data[5],"caddress_data":personal_data[6],
-    "past_education_data":personal_data[7],"applying_data":personal_data[8]})
+        "income_data":personal_data[3],"domicile_data":personal_data[4],"paddress_data":personal_data[5],"caddress_data":personal_data[6],
+        "past_education_data":personal_data[7],"applying_data":personal_data[8]})
 
 def faculty_logout(request):
     return render(request,'index.html')
+
+def insert_personal_data(request):
+    if request.method=="POST":
+        id = uuid.uuid4()
+        Aadhar_card_no = request.POST.get('Aadhar_card_no')
+        fullname = request.POST.get('fullname')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        dateofbirth = request.POST.get('dateofbirth')
+        age = request.POST.get('age')
+        gender = request.POST.get("gender")
+        Applicant_Full_Name_As_Per_SSC_Marksheet = request.POST.get('Applicant_Full_Name_As_Per_SSC_Marksheet')
+        Guardian_Mobile_No = request.POST.get('Guardian_Mobile_No')
+        Marital_Status = request.POST.get('Marital_Status')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_personal_details(id,Aadhar_card_no,fullname,email,mobile,dateofbirth,age,gender,Applicant_Full_Name_As_Per_SSC_Marksheet,Guardian_Mobile_No,Marital_Status)
+        print(result)
+        return HttpResponse(str(result))
+
+def insert_religion_data(request):
+    if request.method=="POST":
+        id = uuid.uuid4()
+        religion = request.POST.get('religion')
+        cdb = CassandraOperation.CassandraManagement()
+        result=cdb.insert_religion_details(id,religion)
+        return HttpResponse(result)
+
+def insert_caste_data(request):
+    if request.method=="POST":
+        id = uuid.uuid4()
+        Caste_Category = request.POST.get('Caste_Category')
+        caste = request.POST.get('caste')
+        Do_you_have_Caste_Certificate = request.POST.get('Do_you_have_Caste_Certificate')
+        Caste_Certificate_Number = request.POST.get('Caste_Certificate_Number')
+        Issuing_District = request.POST.get('Issuing_District')
+        Applicant_Name = request.POST.get('Applicant_Name')
+        Issuing_Authority = request.POST.get('Issuing_Authority')
+        Caste_Certificate = request.POST.get('Caste_Certificate')
+        Caste_Issuing_Date = request.POST.get('Caste_Issuing_Date')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_caste_details(id,Caste_Category,caste,Do_you_have_Caste_Certificate,Caste_Certificate_Number,Issuing_District,Applicant_Name,Issuing_Authority,Caste_Certificate,Caste_Issuing_Date)
+        return HttpResponse(result)
+
+def insert_income_data(request):
+    if request.method == "POST":
+        id = uuid.uuid4()
+        Family_Annual_Income = request.POST.get('Family_Annual_Income')
+        Do_you_have_Income_Certificate = request.POST.get('Do_you_have_Income_Certificate')
+        Income_Certificate_No = request.POST.get('Income_Certificate_No')
+        Income_Issuing_Authority = request.POST.get('Income_Issuing_Authority')
+        Income_Certificate = request.POST.get('Income_Certificate')
+        Income_Issuing_Date = request.POST.get('Income_Issuing_Date')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_income_details(id,Family_Annual_Income, Do_you_have_Income_Certificate, Income_Certificate_No, Income_Issuing_Authority, Income_Certificate, Income_Issuing_Date)
+        return HttpResponse(result)
+
+def insert_domicile_data(request):
+    if request.method == "POST":
+        id = uuid.uuid4()
+        Are_you_Domicile_of_Maharashtra = request.POST.get('Are_you_Domicile_of_Maharashtra')
+        Do_you_have_Domicile_Certificate = request.POST.get('Do_you_have_Domicile_Certificate')
+        Relationship_Type = request.POST.get('Relationship_Type')
+        Domicile_Certificate_No = request.POST.get('Domicile_Certificate_No')
+        Applicant_Name = request.POST.get('Applicant_Name')
+        Issuing_Authority = request.POST.get('Issuing_Authority')
+        domicile_Issuing_Date = request.POST.get('domicile_Issuing_Date')
+        Domicile_Certificate = request.POST.get('Domicile_Certificate')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_domicile_details(id,Are_you_Domicile_of_Maharashtra, Do_you_have_Domicile_Certificate,Relationship_Type ,Domicile_Certificate_No, Applicant_Name, Issuing_Authority, domicile_Issuing_Date, Domicile_Certificate)
+        return HttpResponse(result)
+
+def insert_address_data(request):
+    if request.method == "POST":
+        id = uuid.uuid4()
+        paddress = request.POST.get('paddress')
+        pstate =request.POST.get('pstate')
+        pdistrict = request.POST.get('pdistrict')
+        ptaluka = request.POST.get('ptaluka')
+        pvillage = request.POST.get('pvillage')
+        ppincode = request.POST.get('ppincode')
+        caddress = request.POST.get('caddress')
+        cstate = request.POST.get('cstate')
+        cdistrict = request.POST.get('cdistrict')
+        ctaluka = request.POST.get('ctaluka')
+        cvillage = request.POST.get('cvillage')
+        cpincode = request.POST.get('cpincode')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_address_details(id,paddress,pstate,pdistrict,ptaluka,pvillage,ppincode,caddress,cstate,cdistrict,ctaluka,cvillage,cpincode)
+        return HttpResponse(result)
+
+
+def insert_past_edu_data(request):
+    if request.method == "POST":
+        id = uuid.uuid4()
+
+        qualification_level = request.POST.get('qualification_level')
+        stream = request.POST.get('stream')
+        completed = request.POST.get('completed')
+        institute_state = request.POST.get('institute_state')
+        institute_district = request.POST.get('institute_district')
+        institute_taluka = request.POST.get('institute_taluka')
+        college_school_name = request.POST.get('college_school_name')
+        course = request.POST.get('course')
+        board_university = request.POST.get('board_university')
+        mode = request.POST.get('mode')
+        Admission_Year = request.POST.get('Admission_Year')
+        passing_year = request.POST.get('passing_year')
+        result = request.POST.get('result')
+        percentage = request.POST.get('percentage')
+        Attempts = request.POST.get('Attempts')
+        Upload_Marksheet = request.POST.get('Upload_Marksheet')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_past_edu_details(id,qualification_level,stream,completed,institute_state,institute_district,institute_taluka,college_school_name,course,
+                                             board_university,mode,Admission_Year,passing_year,result,percentage,Attempts,Upload_Marksheet)
+        return HttpResponse(result)
+
+def insert_applying_data(request):
+    if request.method == "POST":
+        id = uuid.uuid4()
+        apply_course_name = request.POST.get('apply_course_name')
+        apply_Admission_Type = request.POST.get('apply_Admission_Type')
+        apply_cet_percentage = request.POST.get('apply_cet_percentage')
+        apply_cap_id = request.POST.get('apply_cap_id')
+        apply_admission_through = request.POST.get('apply_admission_through')
+        apply_gap_year = request.POST.get('apply_gap_year')
+        apply_mode = request.POST.get('apply_mode')
+
+        Family_Annual_Income = request.POST.get('Family_Annual_Income')
+        Do_you_have_Income_Certificate = request.POST.get('Do_you_have_Income_Certificate')
+        Income_Certificate_No = request.POST.get('Income_Certificate_No')
+        Income_Issuing_Authority = request.POST.get('Income_Issuing_Authority')
+        Income_Certificate = request.POST.get('Income_Certificate')
+        Income_Issuing_Date = request.POST.get('Income_Issuing_Date')
+        cdb = CassandraOperation.CassandraManagement()
+        result = cdb.insert_applying_details(id,apply_course_name, apply_Admission_Type, apply_cet_percentage, apply_cap_id,apply_admission_through,apply_gap_year,apply_mode)
+        return HttpResponse(result)

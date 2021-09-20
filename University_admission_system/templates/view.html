@@ -84,54 +84,54 @@
             </div>
             <div class="col">
                 <div class="col">
-                    <label for="application_id">Application ID : {{i.id}}</label>
+                    <label for="">Application ID : {{i.id}}</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Name : {{i.applicant_fullname}}</label>
+                    <label for="">Name : {{i.applicant_fullname}}</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Status : Approved</label>
+                    <label for="">Status : Approved</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Address : Nagpur</label>
+                    <label for="">Address : Nagpur</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                    <label for="">Email : nikhiltelang34@gmail.com</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Mobile Number : 9822269762</label>
+                    <label for="">Mobile Number : 9822269762</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                    <label for="">Date Of Applied : 05/09/2021</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                    <label for="">Date Of Birth : 08/06/1998</label>
                 </div>
             </div>
             <div class="col">
                 <div class="col">
-                    <label for="application_id">Application ID : API000000001</label>
+                    <label for="">Application ID : API000000001</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Name : Nikhil Namdeo Telang</label>
+                    <label for="">Name : Nikhil Namdeo Telang</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Status : Approved</label>
+                    <label for="">Status : Approved</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Address : Nagpur</label>
+                    <label for="">Address : Nagpur</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                    <label for="">Email : nikhiltelang34@gmail.com</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Mobile Number : 9822269762</label>
+                    <label for="">Mobile Number : 9822269762</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                    <label for="">Date Of Applied : 05/09/2021</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                    <label for="">Date Of Birth : 08/06/1998</label>
                 </div>
             </div>
         </div>
@@ -525,13 +525,13 @@
                             <div class="row">
 
                                 <div class="col-4 mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address"
+                                    <label for="paddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="paddress" name="paddress"
                                         value="{{item.address}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="State" class="form-label">State</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="pstate" class="form-label">State</label>
+                                    <select class="form-select" aria-label="Default select example" id="pstate" name="pstate" disabled>
                                         <option>--Select Marital Status--</option>
                                         <option value="{{item.state}}" selected>{{item.state}}
                                         </option>
@@ -540,8 +540,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="District" class="form-label">District</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="pdistrict" class="form-label">District</label>
+                                    <select class="form-select" aria-label="Default select example" id="pdistrict" name="pdistrict" disabled>
                                         <option>--Select Gender--</option>
                                         <option value="{{item.district}}" selected>{{item.district}}</option>
                                         <option value="2">Female</option>
@@ -552,19 +552,19 @@
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Taluka" class="form-label">Taluka</label>
-                                    <input type="text" class="form-control" id="Taluka" name="Taluka"
+                                    <label for="ptaluka" class="form-label">Taluka</label>
+                                    <input type="text" class="form-control" id="ptaluka" name="ptaluka"
                                         value="{{item.taluka}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Village" class="form-label">Village</label>
-                                    <input type="text" class="form-control" id="Village" name="Village"
+                                    <label for="pvillage" class="form-label">Village</label>
+                                    <input type="text" class="form-control" id="pvillage" name="pvillage"
                                         value="{{item.village}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Pincode</label>
+                                    <label for="ppincode" class="form-label">Pincode</label>
 
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <input type="text" class="form-control" id="ppincode" name="ppincode"
                                         value="{{item.pincode}}" disabled>
                                 </div>
                             </div>
@@ -573,13 +573,13 @@
                             {% for item in caddress_data %}
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="dateofbirth" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <label for="caddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="caddress" name="caddress"
                                         value="{{item.address}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="age" class="form-label">State</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="cstate" class="form-label">State</label>
+                                    <select class="form-select" aria-label="Default select example" id="cstate" name="cstate" disabled>
                                         <option>--Select Marital Status--</option>
                                         <option value="{{item.state}}" selected>{{item.state}}
                                         </option>
@@ -588,8 +588,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="gender" class="form-label">District</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="cdistrict" class="form-label">District</label>
+                                    <select class="form-select" aria-label="Default select example" name="cdistrict" id="cdistrict" disabled>
                                         <option>--Select Gender--</option>
                                         <option value="{{item.district}}" selected>{{item.district}}</option>
                                         <option value="2">Female</option>
@@ -600,22 +600,22 @@
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                    <label for="ctaluka"
                                         class="form-label">Taluka</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                        id="ctaluka"
+                                        name="ctaluka"
                                         value="{{item.taluka}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Guardian_Mobile_No" class="form-label">Village</label>
-                                    <input type="text" class="form-control" id="Guardian_Mobile_No"
-                                        name="Guardian_Mobile_No" value="{{item.village}}" disabled>
+                                    <label for="cvillage" class="form-label">Village</label>
+                                    <input type="text" class="form-control" id="cvillage"
+                                        name="cvillage" value="{{item.village}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Pincode</label>
+                                    <label for="cpincode" class="form-label">Pincode</label>
 
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <input type="text" class="form-control" id="cpincode" name="cpincode"
                                         value="{{item.pincode}}" disabled>
                                 </div>
                             </div>
@@ -639,13 +639,13 @@
                             <h3>Past Qualification Details</h3>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="address" class="form-label">Qualification Level</label>
-                                    <input type="text" class="form-control" id="address" name="address"
+                                    <label for=">qualification_level" class="form-label">Qualification Level</label>
+                                    <input type="text" class="form-control" id="qualification_level" name="qualification_level"
                                         value="{{item.qualification_level}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="State" class="form-label">Stream</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="stream" class="form-label">Stream</label>
+                                    <select class="form-select" aria-label="Default select example" id="stream" name="stream" disabled>
                                         <option>--Select Marital Status--</option>
                                         <option value="{{item.stream}}" selected>{{item.stream}}
                                         </option>
@@ -654,8 +654,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="District" class="form-label">Completed</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="completed" class="form-label">Completed</label>
+                                    <select class="form-select" aria-label="Default select example" id="completed" name="completed" disabled>
                                         <option>--Select Gender--</option>
                                         <option value="{{item.completed}}" selected>{{item.completed}}</option>
                                         <option value="2">Female</option>
@@ -666,32 +666,32 @@
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Taluka" class="form-label">Institute State</label>
-                                    <input type="text" class="form-control" id="Taluka" name="Taluka"
+                                    <label for="institute_state" class="form-label">Institute State</label>
+                                    <input type="text" class="form-control" id="institute_state" name="institute_state"
                                         value="{{item.institute_state}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Village" class="form-label">Institute District</label>
-                                    <input type="text" class="form-control" id="Village" name="Village"
+                                    <label for="institute_district" class="form-label">Institute District</label>
+                                    <input type="text" class="form-control" id="institute_district" name="institute_district"
                                         value="{{item.institute_district}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Institute Taluka</label>
+                                    <label for="institute_taluka" class="form-label">Institute Taluka</label>
 
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <input type="text" class="form-control" id="institute_taluka" name="institute_taluka"
                                         value="{{item.institute_taluka}}" disabled>
                                 </div>
                             </div>
                             <div class="row">
 
                                 <div class="col-4 mb-3">
-                                    <label for="dateofbirth" class="form-label">College Name / School Name</label>
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <label for="college_school_name" class="form-label">College Name / School Name</label>
+                                    <input type="text" class="form-control" id="college_school_name" name="college_school_name"
                                         value="{{item.school_college_name}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="age" class="form-label">Course</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="course" class="form-label">Course</label>
+                                    <select class="form-select" aria-label="Default select example" id="course" name="course" disabled>
                                         <option>--Select Marital Status--</option>
                                         <option value="{{item.course}}" selected>{{item.course}}
                                         </option>
@@ -700,8 +700,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="gender" class="form-label">Board/University</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="board_university" class="form-label">Board/University</label>
+                                    <select class="form-select" aria-label="Default select example" id="board_university" name="board_university" disabled>
                                         <option>--Select Gender--</option>
                                         <option value="{{item.board_university_name}}" selected>{{item.board_university_name}}</option>
                                         <option value="2">Female</option>
@@ -712,51 +712,51 @@
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                    <label for="mode"
                                         class="form-label">Mode</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                        id="mode"
+                                        name="mode"
                                         value="{{item.mode}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Guardian_Mobile_No" class="form-label">Admission Year</label>
-                                    <input type="text" class="form-control" id="Guardian_Mobile_No"
-                                        name="Guardian_Mobile_No" value="{{item.admission_year}}" disabled>
+                                    <label for="Admission_Year" class="form-label">Admission Year</label>
+                                    <input type="text" class="form-control" id="Admission_Year"
+                                        name="Admission_Year" value="{{item.admission_year}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Passing Year</label>
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <label for="passing_year" class="form-label">Passing Year</label>
+                                    <input type="text" class="form-control" id="passing_year" name="passing_year"
                                         value="{{item.passing_year}}" disabled>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                    <label for="result"
                                         class="form-label">Result</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                        id="result"
+                                        name="result"
                                         value="{{item.result}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Guardian_Mobile_No" class="form-label">Percentage</label>
-                                    <input type="text" class="form-control" id="Guardian_Mobile_No"
-                                        name="Guardian_Mobile_No" value="{{item.percentage}}" disabled>
+                                    <label for="percentage" class="form-label">Percentage</label>
+                                    <input type="text" class="form-control" id="percentage"
+                                        name="percentage" value="{{item.percentage}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Attempts</label>
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <label for="Attempts" class="form-label">Attempts</label>
+                                    <input type="text" class="form-control" id="Attempts" name="Attempts"
                                         value="{{item.attempts}}" disabled>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">Upload
+                                    <label for="Upload_Marksheet" class="form-label">Upload
                                         Marksheet</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                        id="Upload_Marksheet"
+                                        name="Upload_Marksheet"
                                         value="{{item.marksheet_doc}}" disabled>
                                 </div>
                             </div>
@@ -841,8 +841,8 @@
                             <h3>Applying Details</h3>
                             <div class="row">
                                 <div class="col-4 mb-3">
-                                    <label for="age" class="form-label">Course Name</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="apply_course_name" class="form-label">Course Name</label>
+                                    <select class="form-select" aria-label="Default select example" name="apply_course_name" id="apply_course_name" disabled>
                                         <option>--Select Marital Status--</option>
                                         <option value="{{item.course_name}}" selected>{{item.course_name}}
                                         </option>
@@ -851,8 +851,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="gender" class="form-label">Admission Type</label>
-                                    <select class="form-select" aria-label="Default select example" disabled>
+                                    <label for="apply_Admission_Type" class="form-label">Admission Type</label>
+                                    <select class="form-select" aria-label="Default select example" id="apply_Admission_Type" name="apply_Admission_Type" disabled>
                                         <option>--Select Gender--</option>
                                         <option value="{{item.admission_type}}" selected>{{item.admission_type}}</option>
                                         <option value="2">Female</option>
@@ -860,31 +860,31 @@
                                     </select>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">CET / Merit
+                                    <label for="apply_cet_percentage" class="form-label">CET / Merit
                                         Percentage / CLAT Score</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                        id="apply_cet_percentage"
+                                        name="apply_cet_percentage"
                                         value="{{item.cet_percentage}}" disabled>
                                 </div>
                             </div>
                             <div class="row">
                                 
                                 <div class="col-4 mb-3">
-                                    <label for="Guardian_Mobile_No" class="form-label">Application Admission ID/CAP
+                                    <label for="apply_cap_id" class="form-label">Application Admission ID/CAP
                                         ID/CLAT Admit Card No</label>
-                                    <input type="text" class="form-control" id="Guardian_Mobile_No"
-                                        name="Guardian_Mobile_No" value="{{item.cap_id_no}}" disabled>
+                                    <input type="text" class="form-control" id="apply_cap_id"
+                                        name="apply_cap_id" value="{{item.cap_id_no}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Guardian_Mobile_No" class="form-label">Is Admission Through Open Or
+                                    <label for="apply_admission_through" class="form-label">Is Admission Through Open Or
                                         Reserved Category ?</label>
-                                    <input type="text" class="form-control" id="Guardian_Mobile_No"
-                                        name="Guardian_Mobile_No" value="{{item.reserved_category}}" disabled>
+                                    <input type="text" class="form-control" id="apply_admission_through"
+                                        name="apply_admission_through" value="{{item.reserved_category}}" disabled>
                                 </div>
                                 <div class="col-4 mb-3">
-                                    <label for="Marital_Status" class="form-label">Gap Years</label>
-                                    <input type="text" class="form-control" id="dateofbirth" name="dateofbirth"
+                                    <label for="apply_gap_year" class="form-label">Gap Years</label>
+                                    <input type="text" class="form-control" id="apply_gap_year" name="apply_gap_year"
                                         value="{{item.gap_year}}" disabled>
                                 </div>
                             </div>
@@ -892,12 +892,12 @@
                                 
                                 
                                 <div class="col-4 mb-3">
-                                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                    <label for="apply_mode"
                                         class="form-label">Mode</label>
                                     <input type="text" class="form-control"
-                                        id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        name="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                                        value="{{item.applicant_fullname}}" disabled>
+                                        id="apply_mode"
+                                        name="apply_mode"
+                                        value="{{item.mode}}" disabled>
                                 </div>
                             </div>
                             
