@@ -1,7 +1,78 @@
-{%extends 'faculty_base.html'%}
-{%load static%}
-{%block body%}
 
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'faculty_home_page' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'faculty_profile_page' %}">Profile</a>
+        </li> 
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'view' %}">Notification</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nikhil
+            Namdeo Telang</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="changepassmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changepassmodal">Change Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'faculty_change_passsword' %}" method="POST">{% csrf_token %}
+            <div class="mb-3">
+              <label for="password1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password1" name="password1">
+            </div>
+            <div class="mb-3">
+              <label for="password2" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="password2" name="password2">
+            </div>
+        </div>
+        <div class=" modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Change</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 <div class="container">
     <div class="p-3 mb-2 bg-success text-white">
@@ -13,304 +84,842 @@
             </div>
             <div class="col">
                 <div class="col">
-                    <label for="application_id">Application ID : API000000001</label>
+                    <label for="">Application ID : {{i.id}}</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Name : Nikhil Namdeo Telang</label>
+                    <label for="">Name : {{i.applicant_fullname}}</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Status : Approved</label>
+                    <label for="">Status : Approved</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Address : Nagpur</label>
+                    <label for="">Address : Nagpur</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                    <label for="">Email : nikhiltelang34@gmail.com</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Mobile Number : 9822269762</label>
+                    <label for="">Mobile Number : 9822269762</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                    <label for="">Date Of Applied : 05/09/2021</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                    <label for="">Date Of Birth : 08/06/1998</label>
                 </div>
             </div>
             <div class="col">
                 <div class="col">
-                    <label for="application_id">Application ID : API000000001</label>
+                    <label for="">Application ID : API000000001</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Name : Nikhil Namdeo Telang</label>
+                    <label for="">Name : Nikhil Namdeo Telang</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Status : Approved</label>
+                    <label for="">Status : Approved</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Address : Nagpur</label>
+                    <label for="">Address : Nagpur</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Email : nikhiltelang34@gmail.com</label>
+                    <label for="">Email : nikhiltelang34@gmail.com</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Mobile Number : 9822269762</label>
+                    <label for="">Mobile Number : 9822269762</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Applied : 05/09/2021</label>
+                    <label for="">Date Of Applied : 05/09/2021</label>
                 </div>
                 <div class="col">
-                    <label for="application_id">Date Of Birth : 08/06/1998</label>
+                    <label for="">Date Of Birth : 08/06/1998</label>
                 </div>
             </div>
         </div>
     </div>
-    <h3>Personal Details</h3>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Aadhar_card_no" class="form-label">Aadhar Card Number</label>
-            <input type="text" class="form-control disabled" id="Aadhar_card_no" name="Aadhar_card_no">
-        </div>
-        <div class="col-1 mb-3">
-            <label for="aadhar_status_btn" class="form-label">Status</label>
-            <button type="button" class="btn btn-success" name="aadhar_status_btn"
-                id="aadhar_status_btn">Verified</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="fullname" class="form-label">Name</label>
-            <input type="text" class="form-control" id="fullname" name="fullname">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="email" class="form-label">Email Id</label>
-            <input type="text" class="form-control" id="email" name="email">
-        </div>
-        <div class="col-1 mb-3">
-            <label for="email_status_btn" class="form-label">Status</label>
-            <button type="button" class="btn btn-success" name="email_status_btn"
-                id="email_status_btn">Verified</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="mobile" class="form-label">Mobile Number</label>
-            <input type="text" class="form-control" id="mobile" name="mobile">
-        </div>
-        <div class="col-1 mb-3">
-            <label for="mobile_status_btn" class="form-label">Status</label>
-            <button type="button" class="btn btn-success" name="mobile_status_btn"
-                id="mobile_status_btn">Verified</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="dateofbirth" class="form-label">Date Of Birth</label>
-            <input type="date" class="form-control" id="dateofbirth" name="dateofbirth">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="age" class="form-label">Age</label>
-            <input type="text" class="form-control" id="age" name="age">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="gender" class="form-label">Gender</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Gender--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">Applicant Full Name (As Per
-                SSC Marksheet/ L.C.)</label>
-            <input type="text" class="form-control" id="Applicant_Full_Name_As_Per_SSC_Marksheet"
-                name="Applicant_Full_Name_As_Per_SSC_Marksheet">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Guardian_Mobile_No" class="form-label">Parent's/Guardian Mobile No</label>
-            <input type="text" class="form-control" id="Guardian_Mobile_No" name="Guardian_Mobile_No">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Marital_Status" class="form-label">Marital Status</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Marital Status--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-    </div>
-    <h3>Religion Details</h3>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="religion" class="form-label">Religion</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Religion--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-    </div>
-    <h3>Caste Details</h3>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Caste_Category" class="form-label">Caste Category</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Caste Category--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Caste" class="form-label">Caste</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Caste--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Do_you_have_Caste_Certificate?" class="form-label">Do you have Caste
-                Certificate?</label>
-            <input type="text" class="form-control" id="Do_you_have_Caste_Certificate"
-                name="Do_you_have_Caste_Certificate">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Caste_Certificate_Number" class="form-label">Caste Certificate Number</label>
-            <input type="text" class="form-control" id="Caste_Certificate_Number" name="Caste_Certificate_Number">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Issuing_District" class="form-label">Issuing District</label>
-            <input type="text" class="form-control" id="Issuing_District" name="Issuing_District">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Applicant_Name" class="form-label">Applicant Name</label>
-            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
-            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Caste_Certificate" class="form-label">Caste Certificate</label>
-            <input type="text" class="form-control" id="Caste_Certificate" name="Caste_Certificate">
-        </div>
-        <div class="col-2 mb-3">
-            <label for="view_caste_certificate" class="form-label">View Document</label>
-            <button type="button" class="btn btn-primary" id="view_caste_certificate" name="view_caste_certificate">View
-                Document</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Caste_Issuing_Date" class="form-label">Issuing Date</label>
-            <input type="date" class="form-control" id="Caste_Issuing_Date" name="Caste_Issuing_Date">
-        </div>
-    </div>
-    <h3>Income Details</h3>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Family_Annual_Income" class="form-label">Family Annual Income</label>
-            <input type="text" class="form-control" id="Family_Annual_Income" name="Family_Annual_Income">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Do_you_have_Income_Certificate?" class="form-label">Do you have Income Certificate?</label>
-            <input type="text" class="form-control" id="Do_you_have_Income_Certificate"
-                name="Do_you_have_Income_Certificate">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Income_Certificate_No" class="form-label">Income Certificate No</label>
-            <input type="text" class="form-control" id="Income_Certificate_No" name="Income_Certificate_No">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Income_Issuing_Authority" class="form-label">Issuing Authority</label>
-            <input type="text" class="form-control" id="Income_Issuing_Authority" name="Income_Issuing_Authority">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Income_Certificate" class="form-label">Income Certificate</label>
-            <input type="text" class="form-control" id="Income_Certificate" name="Income_Certificate">
-        </div>
-        <div class="col-2 mb-3">
-            <label for="view_income_certificate" class="form-label">View Document</label>
-            <button type="button" class="btn btn-primary" id="view_income_certificate"
-                name="view_income_certificate">View
-                Document</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Income_Issuing_Date" class="form-label">Issuing Date</label>
-            <input type="date" class="form-control" id="Income_Issuing_Date" name="Income_Issuing_Date">
-        </div>
-    </div>
-    <h3>Domicile Details</h3>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Are_you_Domicile_of_Maharashtra" class="form-label">Are you Domicile of Maharashtra /
-                Maharashtra-Karnataka Border ?</label>
-            <input type="text" class="form-control" id="Are_you_Domicile_of_Maharashtra"
-                name="Are_you_Domicile_of_Maharashtra">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Do_you_have_Domicile_Certificate" class="form-label">Do you have Domicile Certificate ?</label>
-            <input type="text" class="form-control" id="Do_you_have_Domicile_Certificate"
-                name="Do_you_have_Domicile_Certificate">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Relationship_Type" class="form-label">Relationship Type</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>--Select Relationship--</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-            </select>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="Domicile_Certificate_No" class="form-label">Domicile Certificate No</label>
-            <input type="text" class="form-control" id="Domicile_Certificate_No" name="Domicile_Certificate_No">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Applicant_Name" class="form-label">Applicant Name</label>
-            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
-            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4 mb-3">
-            <label for="domicile_Issuing_Date" class="form-label">Issuing Date</label>
-            <input type="date" class="form-control" id="domicile_Issuing_Date" name="domicile_Issuing_Date">
-        </div>
-        <div class="col-4 mb-3">
-            <label for="Domicile_Certificate" class="form-label">Domicile Certificate</label>
-            <input type="text" class="form-control" id="Domicile_Certificate" name="Domicile_Certificate">
-        </div>
-        <div class="col-2 mb-3">
-            <label for="view_domicile_certificate" class="form-label">View Document</label>
-            <button type="button" class="btn btn-primary" id="view_domicile_certificate"
-                name="view_domicile_certificate">View
-                Document</button>
+
+
+
+
+
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsePersonalDetails" aria-expanded="false"
+                    aria-controls="flush-collapsePersonalDetails">
+                    Personal Details
+                </button>
+            </h2>
+            <div id="flush-collapsePersonalDetails" class="collapse show" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                {%for item in personal_data%}
+                <div class="accordion-body">
+                    <h3>Personal Details</h3>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Aadhar_card_no" class="form-label">Aadhar Card Number</label>
+                            <input type="text" class="form-control disabled" id="Aadhar_card_no" name="Aadhar_card_no"
+                                value="{{item.aadhar_card_no}}" disabled>
+                        </div>
+                        <div class="col-1 mb-3">
+                            <label for="aadhar_status_btn" class="form-label">Status</label>
+                            <button type="button" class="btn btn-success" name="aadhar_status_btn"
+                                id="aadhar_status_btn">Verified</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="fullname" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" value="{{item.name}}"
+                                disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="email" class="form-label">Email Id</label>
+                            <input type="text" class="form-control" id="email" name="email" value="{{item.email}}"
+                                disabled>
+                        </div>
+                        <div class="col-1 mb-3">
+                            <label for="email_status_btn" class="form-label">Status</label>
+                            <button type="button" class="btn btn-success" name="email_status_btn"
+                                id="email_status_btn">Verified</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="mobile" class="form-label">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobile" name="mobile" value="{{item.mobile_no}}"
+                                disabled>
+                        </div>
+                        <div class="col-1 mb-3">
+                            <label for="mobile_status_btn" class="form-label">Status</label>
+                            <button type="button" class="btn btn-success" name="mobile_status_btn"
+                                id="mobile_status_btn">Verified</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="dateofbirth" class="form-label">Date Of Birth</label>
+                            <input type="date" class="form-control" id="dateofbirth" name="dateofbirth"
+                                value="{{item.date_of_birth}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="text" class="form-control" id="age" name="age" value="{{item.age}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Gender--</option>
+                                <option value="{{item.gender}}" selected>{{item.gender}}</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">Applicant Full Name
+                                (As Per
+                                SSC Marksheet/ L.C.)</label>
+                            <input type="text" class="form-control" id="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                                name="Applicant_Full_Name_As_Per_SSC_Marksheet" value="{{item.applicant_fullname}}"
+                                disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Guardian_Mobile_No" class="form-label">Parent's/Guardian Mobile No</label>
+                            <input type="text" class="form-control" id="Guardian_Mobile_No" name="Guardian_Mobile_No"
+                                value="{{item.parent_mobile_no}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Marital_Status" class="form-label">Marital Status</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Marital Status--</option>
+                                <option value="{{item.marital_status}}" selected>{{item.marital_status}}</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
 
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseReligionDetails" aria-expanded="false"
+                    aria-controls="flush-collapseReligionDetails">
+                    Religion Details
+                </button>
+            </h2>
+            <div id="flush-collapseReligionDetails" class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                {%for item in religion_data%}
+                <div class="accordion-body">
+                    <h3>Religion Details</h3>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="religion" class="form-label">Religion</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Religion--</option>
+                                <option value="{{item.religion}}" selected>{{item.religion}}</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseCasteDetails" aria-expanded="false"
+                    aria-controls="flush-collapseCasteDetails">
+                    Caste Details
+                </button>
+            </h2>
+            <div id="flush-collapseCasteDetails" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                {% for item in caste_data %}
+                <div class="accordion-body">
+                    <h3>Caste Details</h3>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Caste_Category" class="form-label">Caste Category</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Caste Category--</option>
+                                <option value="{{item.category}}" selected>{{item.category}}</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Caste" class="form-label">Caste</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Caste--</option>
+                                <option value="{{item.caste}}" selected>{{item.caste}}</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Do_you_have_Caste_Certificate?" class="form-label">Do you have Caste
+                                Certificate?</label>
+                            <input type="text" class="form-control" id="Do_you_have_Caste_Certificate"
+                                name="Do_you_have_Caste_Certificate" value={{item.do_you_have_caste_certificate}}
+                                disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Caste_Certificate_Number" class="form-label">Caste Certificate Number</label>
+                            <input type="text" class="form-control" id="Caste_Certificate_Number"
+                                name="Caste_Certificate_Number" value="{{item.caste_certificate_no}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Issuing_District" class="form-label">Issuing District</label>
+                            <input type="text" class="form-control" id="Issuing_District" name="Issuing_District"
+                                value="{{item.issuing_district}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Applicant_Name" class="form-label">Applicant Name</label>
+                            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name"
+                                value="{{item.applicant_name}}" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
+                            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority"
+                                value="{{item.issuing_athority}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Caste_Certificate" class="form-label">Caste Certificate</label>
+                            <input type="text" class="form-control" id="Caste_Certificate" name="Caste_Certificate"
+                                value="{{item.caste_document}}" disabled>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <label for="view_caste_certificate" class="form-label">View Document</label>
+                            <button type="button" class="btn btn-primary" id="view_caste_certificate"
+                                name="view_caste_certificate">View
+                                Document</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Caste_Issuing_Date" class="form-label">Issuing Date</label>
+                            <input type="date" class="form-control" id="Caste_Issuing_Date" name="Caste_Issuing_Date"
+                                value="{{item.issuing_date}}" disabled>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseIncomeDetails" aria-expanded="false"
+                    aria-controls="flush-collapseIncomeDetails">
+                    Income Details
+                </button>
+            </h2>
+            <div id="flush-collapseIncomeDetails" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample">
+                {% for item in income_data %}
+                <div class="accordion-body">
+                    <h3>Income Details</h3>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Family_Annual_Income" class="form-label">Family Annual Income</label>
+                            <input type="text" class="form-control" id="Family_Annual_Income"
+                                name="Family_Annual_Income" value="{{item.income}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Do_you_have_Income_Certificate?" class="form-label">Do you have Income
+                                Certificate?</label>
+                            <input type="text" class="form-control" id="Do_you_have_Income_Certificate"
+                                name="Do_you_have_Income_Certificate" value="{{item.do_you_have_income_certificate}}"
+                                disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Income_Certificate_No" class="form-label">Income Certificate No</label>
+                            <input type="text" class="form-control" id="Income_Certificate_No"
+                                name="Income_Certificate_No" value="{{item.income_certificate_no}}" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Income_Issuing_Authority" class="form-label">Issuing Authority</label>
+                            <input type="text" class="form-control" id="Income_Issuing_Authority"
+                                name="Income_Issuing_Authority" value="{{item.issuing_authority}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Income_Certificate" class="form-label">Income Certificate</label>
+                            <input type="text" class="form-control" id="Income_Certificate" name="Income_Certificate"
+                                value="{{item.Income_document}}" disabled>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <label for="view_income_certificate" class="form-label">View Document</label>
+                            <button type="button" class="btn btn-primary" id="view_income_certificate"
+                                name="view_income_certificate">View
+                                Document</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Income_Issuing_Date" class="form-label">Issuing Date</label>
+                            <input type="date" class="form-control" id="Income_Issuing_Date" name="Income_Issuing_Date"
+                                value="{{item.issuing_date}}" disabled>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseDomicileDetails" aria-expanded="false"
+                    aria-controls="flush-collapseDomicileDetails">
+                    Domicile Details
+                </button>
+            </h2>
+            <div id="flush-collapseDomicileDetails" class="accordion-collapse collapse"
+                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                {% for item in domicile_data %}
+                <div class="accordion-body">
+                    <h3>Domicile Details</h3>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Are_you_Domicile_of_Maharashtra" class="form-label">Are you Domicile of
+                                Maharashtra /
+                                Maharashtra-Karnataka Border ?</label>
+                            <input type="text" class="form-control" id="Are_you_Domicile_of_Maharashtra"
+                                name="Are_you_Domicile_of_Maharashtra" value="{{item.are_you_domicile_of_maharashtra}}"
+                                disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Do_you_have_Domicile_Certificate" class="form-label">Do you have Domicile
+                                Certificate ?</label>
+                            <input type="text" class="form-control" id="Do_you_have_Domicile_Certificate"
+                                name="Do_you_have_Domicile_Certificate"
+                                value="{{item.do_you_have_domicile_certificate}}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Relationship_Type" class="form-label">Relationship Type</label>
+                            <select class="form-select" aria-label="Default select example" disabled>
+                                <option>--Select Relationship--</option>
+                                <option value="{{item.Relationship_Type }}" selected>{{item.relationship_type }}
+                                </option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="Domicile_Certificate_No" class="form-label">Domicile Certificate No</label>
+                            <input type="text" class="form-control" id="Domicile_Certificate_No"
+                                name="Domicile_Certificate_No" value="{{item.domicile_certificate_no }}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Applicant_Name" class="form-label">Applicant Name</label>
+                            <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name"
+                                value="{{item.applicant_name }}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Issuing_Authority?" class="form-label">Issuing Authority</label>
+                            <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority"
+                                value="{{item.issuing_authority }}" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="domicile_Issuing_Date" class="form-label">Issuing Date</label>
+                            <input type="date" class="form-control" id="domicile_Issuing_Date"
+                                name="domicile_Issuing_Date" value="{{item.issuing_date }}" disabled>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="Domicile_Certificate" class="form-label">Domicile Certificate</label>
+                            <input type="text" class="form-control" id="Domicile_Certificate"
+                                name="Domicile_Certificate" value="{{item.domicile_document }}" disabled>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <label for="view_domicile_certificate" class="form-label">View Document</label>
+                            <button type="button" class="btn btn-primary" id="view_domicile_certificate"
+                                name="view_domicile_certificate">View
+                                Document</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Address Details
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        
+                        <div class="accordion-body">
+                            <h3>Permanent Address Details</h3>
+                            {% for item in paddress_data %}
+                            <div class="row">
+
+                                <div class="col-4 mb-3">
+                                    <label for="paddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="paddress" name="paddress"
+                                        value="{{item.address}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="pstate" class="form-label">State</label>
+                                    <select class="form-select" aria-label="Default select example" id="pstate" name="pstate" disabled>
+                                        <option>--Select Marital Status--</option>
+                                        <option value="{{item.state}}" selected>{{item.state}}
+                                        </option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="pdistrict" class="form-label">District</label>
+                                    <select class="form-select" aria-label="Default select example" id="pdistrict" name="pdistrict" disabled>
+                                        <option>--Select Gender--</option>
+                                        <option value="{{item.district}}" selected>{{item.district}}</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="ptaluka" class="form-label">Taluka</label>
+                                    <input type="text" class="form-control" id="ptaluka" name="ptaluka"
+                                        value="{{item.taluka}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="pvillage" class="form-label">Village</label>
+                                    <input type="text" class="form-control" id="pvillage" name="pvillage"
+                                        value="{{item.village}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="ppincode" class="form-label">Pincode</label>
+
+                                    <input type="text" class="form-control" id="ppincode" name="ppincode"
+                                        value="{{item.pincode}}" disabled>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <h4>Correspondence Address Details</h4>
+                            {% for item in caddress_data %}
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="caddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="caddress" name="caddress"
+                                        value="{{item.address}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="cstate" class="form-label">State</label>
+                                    <select class="form-select" aria-label="Default select example" id="cstate" name="cstate" disabled>
+                                        <option>--Select Marital Status--</option>
+                                        <option value="{{item.state}}" selected>{{item.state}}
+                                        </option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="cdistrict" class="form-label">District</label>
+                                    <select class="form-select" aria-label="Default select example" name="cdistrict" id="cdistrict" disabled>
+                                        <option>--Select Gender--</option>
+                                        <option value="{{item.district}}" selected>{{item.district}}</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="ctaluka"
+                                        class="form-label">Taluka</label>
+                                    <input type="text" class="form-control"
+                                        id="ctaluka"
+                                        name="ctaluka"
+                                        value="{{item.taluka}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="cvillage" class="form-label">Village</label>
+                                    <input type="text" class="form-control" id="cvillage"
+                                        name="cvillage" value="{{item.village}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="cpincode" class="form-label">Pincode</label>
+
+                                    <input type="text" class="form-control" id="cpincode" name="cpincode"
+                                        value="{{item.pincode}}" disabled>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            Past Education
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        {% for item in past_education_data %}
+                        <div class="accordion-body">
+                            <h3>Past Qualification Details</h3>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for=">qualification_level" class="form-label">Qualification Level</label>
+                                    <input type="text" class="form-control" id="qualification_level" name="qualification_level"
+                                        value="{{item.qualification_level}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="stream" class="form-label">Stream</label>
+                                    <select class="form-select" aria-label="Default select example" id="stream" name="stream" disabled>
+                                        <option>--Select Marital Status--</option>
+                                        <option value="{{item.stream}}" selected>{{item.stream}}
+                                        </option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="completed" class="form-label">Completed</label>
+                                    <select class="form-select" aria-label="Default select example" id="completed" name="completed" disabled>
+                                        <option>--Select Gender--</option>
+                                        <option value="{{item.completed}}" selected>{{item.completed}}</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="institute_state" class="form-label">Institute State</label>
+                                    <input type="text" class="form-control" id="institute_state" name="institute_state"
+                                        value="{{item.institute_state}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="institute_district" class="form-label">Institute District</label>
+                                    <input type="text" class="form-control" id="institute_district" name="institute_district"
+                                        value="{{item.institute_district}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="institute_taluka" class="form-label">Institute Taluka</label>
+
+                                    <input type="text" class="form-control" id="institute_taluka" name="institute_taluka"
+                                        value="{{item.institute_taluka}}" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-4 mb-3">
+                                    <label for="college_school_name" class="form-label">College Name / School Name</label>
+                                    <input type="text" class="form-control" id="college_school_name" name="college_school_name"
+                                        value="{{item.school_college_name}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="course" class="form-label">Course</label>
+                                    <select class="form-select" aria-label="Default select example" id="course" name="course" disabled>
+                                        <option>--Select Marital Status--</option>
+                                        <option value="{{item.course}}" selected>{{item.course}}
+                                        </option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="board_university" class="form-label">Board/University</label>
+                                    <select class="form-select" aria-label="Default select example" id="board_university" name="board_university" disabled>
+                                        <option>--Select Gender--</option>
+                                        <option value="{{item.board_university_name}}" selected>{{item.board_university_name}}</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="mode"
+                                        class="form-label">Mode</label>
+                                    <input type="text" class="form-control"
+                                        id="mode"
+                                        name="mode"
+                                        value="{{item.mode}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="Admission_Year" class="form-label">Admission Year</label>
+                                    <input type="text" class="form-control" id="Admission_Year"
+                                        name="Admission_Year" value="{{item.admission_year}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="passing_year" class="form-label">Passing Year</label>
+                                    <input type="text" class="form-control" id="passing_year" name="passing_year"
+                                        value="{{item.passing_year}}" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="result"
+                                        class="form-label">Result</label>
+                                    <input type="text" class="form-control"
+                                        id="result"
+                                        name="result"
+                                        value="{{item.result}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="percentage" class="form-label">Percentage</label>
+                                    <input type="text" class="form-control" id="percentage"
+                                        name="percentage" value="{{item.percentage}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="Attempts" class="form-label">Attempts</label>
+                                    <input type="text" class="form-control" id="Attempts" name="Attempts"
+                                        value="{{item.attempts}}" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="Upload_Marksheet" class="form-label">Upload
+                                        Marksheet</label>
+                                    <input type="text" class="form-control"
+                                        id="Upload_Marksheet"
+                                        name="Upload_Marksheet"
+                                        value="{{item.marksheet_doc}}" disabled>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sr.No.</th>
+                                        <th scope="col">Qualification Level</th>
+                                        <th scope="col">Stream</th>
+                                        <th scope="col">Course</th>
+                                        <th scope="col">Institute State</th>
+                                        <th scope="col">Board/University</th>
+                                        <th scope="col">Result</th>
+                                        <th scope="col">Admission Year</th>
+                                        <th scope="col">Passing Year</th>
+                                        <th scope="col">Percentage</th>
+                                        <th scope="col">View Document</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>SSC</td>
+                                        <td>SSC</td>
+                                        <td>SSC</td>
+                                        <td>Maharashtra</td>
+                                        <td>MAHARASHTRA STATE BOARD OF SECONDARY AND HIGHER SECONDARY EDUCATION</td>
+                                        <td>Passed</td>
+                                        <td>2013</td>
+                                        <td>2014</td>
+                                        <td>72</td>
+                                        <td><button class="btn btn-success" href="#">View</button></td>
+                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>HSC</td>
+                                        <td>Science</td>
+                                        <td>HSC</td>
+                                        <td>Maharashtra</td>
+                                        <td>MAHARASHTRA STATE BOARD OF SECONDARY AND HIGHER SECONDARY EDUCATION</td>
+                                        <td>Passed</td>
+                                        <td>2015</td>
+                                        <td>2016</td>
+                                        <td>72</td>
+                                        <td><button class="btn btn-success" href="#">View</button></td>
+                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Under Graduate Course</td>
+                                        <td>Science</td>
+                                        <td>BCA</td>
+                                        <td>Maharashtra</td>
+                                        <td>SANT GADGE BABA AMRAVATI UNIVERSITY</td>
+                                        <td>Passed</td>
+                                        <td>2016</td>
+                                        <td>2019</td>
+                                        <td>72</td>
+                                        <td><button class="btn btn-success" href="#">View</button></td>
+                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                            Applying Details
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree">
+                        {% for item in applying_data %}
+                        <div class="accordion-body">
+                            <h3>Applying Details</h3>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="apply_course_name" class="form-label">Course Name</label>
+                                    <select class="form-select" aria-label="Default select example" name="apply_course_name" id="apply_course_name" disabled>
+                                        <option>--Select Marital Status--</option>
+                                        <option value="{{item.course_name}}" selected>{{item.course_name}}
+                                        </option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="apply_Admission_Type" class="form-label">Admission Type</label>
+                                    <select class="form-select" aria-label="Default select example" id="apply_Admission_Type" name="apply_Admission_Type" disabled>
+                                        <option>--Select Gender--</option>
+                                        <option value="{{item.admission_type}}" selected>{{item.admission_type}}</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="apply_cet_percentage" class="form-label">CET / Merit
+                                        Percentage / CLAT Score</label>
+                                    <input type="text" class="form-control"
+                                        id="apply_cet_percentage"
+                                        name="apply_cet_percentage"
+                                        value="{{item.cet_percentage}}" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col-4 mb-3">
+                                    <label for="apply_cap_id" class="form-label">Application Admission ID/CAP
+                                        ID/CLAT Admit Card No</label>
+                                    <input type="text" class="form-control" id="apply_cap_id"
+                                        name="apply_cap_id" value="{{item.cap_id_no}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="apply_admission_through" class="form-label">Is Admission Through Open Or
+                                        Reserved Category ?</label>
+                                    <input type="text" class="form-control" id="apply_admission_through"
+                                        name="apply_admission_through" value="{{item.reserved_category}}" disabled>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <label for="apply_gap_year" class="form-label">Gap Years</label>
+                                    <input type="text" class="form-control" id="apply_gap_year" name="apply_gap_year"
+                                        value="{{item.gap_year}}" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                
+                                <div class="col-4 mb-3">
+                                    <label for="apply_mode"
+                                        class="form-label">Mode</label>
+                                    <input type="text" class="form-control"
+                                        id="apply_mode"
+                                        name="apply_mode"
+                                        value="{{item.mode}}" disabled>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-{%endblock%}
+
+</div>
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="#"> google.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
