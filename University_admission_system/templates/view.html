@@ -22,11 +22,11 @@
           <a class="nav-link active" aria-current="page" href="{% url 'faculty_home_page' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'faculty_profile_page' %}">Profile</a>
+          <a class="nav-link" href="{% url 'faculty_profile_page' id %}">Profile</a>
         </li> 
         
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'view' %}">Notification</a>
+          <a class="nav-link" href="#">Notification</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -78,7 +78,7 @@
     <div class="p-3 mb-2 bg-success text-white">
         <div class="row">
             <div class="col-3">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 17rem;">
                     <img src="{%static 'profile_pic/profile_pic.jpg'%}" class="card-img-top" alt="...">
                 </div>
             </div>
@@ -109,29 +109,20 @@
                 </div>
             </div>
             <div class="col">
-                <div class="col">
-                    <label for="">Application ID : API000000001</label>
+                <div class="col my-1">
+                    <label for="">Caste Certificate      : <a href="{%url 'caste_certificate_view' %}"><button class="btn btn-sm btn-danger">View</button></a></label>
                 </div>
-                <div class="col">
-                    <label for="">Name : Nikhil Namdeo Telang</label>
+                <div class="col my-1">
+                    <label for="">Income Certificate     : <a href="{%url 'income_view' %}"><button class="btn btn-sm btn-danger" href="#">View</button></a></label>
                 </div>
-                <div class="col">
-                    <label for="">Status : Approved</label>
+                <div class="col my-1">
+                    <label for="">Domicile Certificate   : <a href="{%url 'domicile_view' %}"><button class="btn btn-sm btn-danger" href="#">View</button></a></label>
                 </div>
-                <div class="col">
-                    <label for="">Address : Nagpur</label>
+                <div class="col my-1">
+                    <label for="">SSC Certificate        : <a href="{%url 'ssc_certificate_view' %}"><button class="btn btn-sm btn-danger" href="#">View</button></a></label>
                 </div>
-                <div class="col">
-                    <label for="">Email : nikhiltelang34@gmail.com</label>
-                </div>
-                <div class="col">
-                    <label for="">Mobile Number : 9822269762</label>
-                </div>
-                <div class="col">
-                    <label for="">Date Of Applied : 05/09/2021</label>
-                </div>
-                <div class="col">
-                    <label for="">Date Of Birth : 08/06/1998</label>
+                <div class="col my-1">
+                    <label for="">HSC Certificate        : <a href="{%url 'hsc_certificate_view' %}"><button class="btn btn-sm btn-danger" href="#">View</button></a></label>
                 </div>
             </div>
         </div>
@@ -774,7 +765,6 @@
                                         <th scope="col">Passing Year</th>
                                         <th scope="col">Percentage</th>
                                         <th scope="col">View Document</th>
-                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -789,8 +779,7 @@
                                         <td>2013</td>
                                         <td>2014</td>
                                         <td>72</td>
-                                        <td><button class="btn btn-success" href="#">View</button></td>
-                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                        <td><button class="btn btn-sm btn-success" href="#">View</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">1</th>
@@ -803,8 +792,7 @@
                                         <td>2015</td>
                                         <td>2016</td>
                                         <td>72</td>
-                                        <td><button class="btn btn-success" href="#">View</button></td>
-                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                        <td><button class="btn btn-sm btn-success" href="#">View</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">1</th>
@@ -817,8 +805,7 @@
                                         <td>2016</td>
                                         <td>2019</td>
                                         <td>72</td>
-                                        <td><button class="btn btn-success" href="#">View</button></td>
-                                        <td><button class="btn btn-danger" href="#">Delete</button></td>
+                                        <td><button class="btn btn-sm btn-success" href="#">View</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -908,9 +895,21 @@
             </div>
         </div>
     </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end my-5 ">
+        <a href="{%url 'approvedbyfaculty' %}">
+        <button class="btn btn-success" href="">Approve</button>
+        </a>
+        <a href="{%url 'rejectbyfaculty' %}">
+        <button class="btn btn-danger ">Reject</button>
+        </a>
+        <a href="{%url 'selectbyfaculty' %}">
+        <button class="btn btn-primary ">Select</button>
+        </a>
+    </div>
+    
 </div>
 
-</div>
+</div class="my-5">
 <footer class="page-footer font-small blue">
 
     <!-- Copyright -->

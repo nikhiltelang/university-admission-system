@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Machine Learning Practical Assignment/.idea/Machine Learning Practical Assignment.iml" filepath="$USER_HOME$/Machine Learning Practical Assignment/.idea/Machine Learning Practical Assignment.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/UAS.iml" filepath="$PROJECT_DIR$/.idea/UAS.iml" />
     </modules>
   </component>

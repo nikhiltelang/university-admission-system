@@ -1,0 +1,48 @@
+CREATE KEYSPACE university WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+create table student_info(id uuid PRIMARY KEY,fullname text, email text, password text);
+insert into student_info(id,fullname,email,password)VALUES(28cf7fc0-161f-11ec-865c-182649de5bec,'Nikhil 
+Namdeo Telang','nikhiltelang34@gmail.com','Pass@1234');
+
+create table faculty_info(id uuid PRIMARY KEY,fullname text, email text, password text);
+
+create table faculty_connection(id uuid PRIMARY KEY, facebook text, github text, linkedin text, twitter text,website text);
+
+create table faculty_profile(id uuid PRIMARY KEY, mobile_no bigint, department text, branch text, role text, address text, highest_qualification text);
+
+create table personal_details(id uuid PRIMARY KEY, aadhar_card_no bigint ,name text,email text, mobile_no bigint,date_of_birth timestamp,age int, gender text, applicant_fullname text,
+                    parent_mobile_no bigint,marital_status text);
+insert into personal_details(id, aadhar_card_no,name,email, mobile_no,date_of_birth,age, gender, applicant_fullname,
+                    parent_mobile_no,marital_status)values({},{},'{}','{}',{},'{}',{},'{}','{}',{},'{}');
+
+create table religion_details(id uuid PRIMARY KEY, religion text);
+
+create table caste_details(id uuid PRIMARY KEY, category text, caste text, do_you_have_caste_certificate text, caste_certificate_no int,
+             issuing_district text, applicant_name text, issuing_athority text, caste_document text, issuing_date timestamp);
+
+create table income_details(id uuid PRIMARY KEY, income int, do_you_have_income_certificate text, income_certificate_no int, issuing_authority text,
+             income_document text, issuing_date timestamp); 
+
+create table domicile_details(id uuid PRIMARY KEY,are_you_domicile_of_maharashtra text,do_you_have_domicile_certificate text,relationship_type text, domicile_certificate_no int, applicant_name text,
+             issuing_authority text, issuing_date timestamp,domicile_document text);
+
+create table permanent_address_details(id uuid PRIMARY KEY, address text , state text,district text,taluka text,village text,pincode int);
+
+create table correspondence_address_details(id uuid PRIMARY KEY, address text , state text,district text,taluka text,village text,pincode int);
+
+create table past_qualification_details(id uuid PRIMARY KEY, qualification_level text,stream text,completed text,institute_state text, institute_district text,
+             institute_taluka text,school_college_name text, course text,board_university_name text,mode text,admission_year int,passing_year int,result text,percentage float,attempts int,
+             marksheet_doc text);
+
+create table applying_details(id uuid PRIMARY KEY, course_name text, admission_type text, cet_percentage float, cap_id_no int,
+             reserved_category text, gap_year int,mode text);
+
+
+insert into past_qualification_details(id, qualification_level, stream, completed,institute_state , institute_district,
+             institute_taluka, school_college_name, course,board_university_name, mode, admission_year, passing_year, result, percentage, attempts,
+             marksheet_doc)values(28cf7fc0-161f-11ec-865c-182649de5bec,'3','3','3','Maharashtra','Yavatmal','Zari','GHRIIT','BCA','1','1',2000,2000,'Pssed',12.12,1,
+             'University Admission System (Web Application).pdf');
+
+
+create table student_status(id uuid PRIMARY KEY, aadhar_status text, mobile_status text, email_status text,student_approve1 text,student_approve2 text);
+

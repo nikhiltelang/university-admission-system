@@ -1,48 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: blueviolet;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
-<h1>{{id}}</h1>
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'faculty_home_page' %}">Home</a>
+  {% for item in result %}
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="{% url 'faculty_home_page' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'faculty_profile_page' item.id %}">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Notification</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+        aria-expanded="false">{{item.fullname}}</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'faculty_profile_page'%}">Profile</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" href="{%url 'view' %}">Notification</a>
+        <li>
+          <hr class="dropdown-divider">
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nikhil
-            Namdeo Telang</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="{% url 'faculty_logout' %}">Log Out</a></li>
-          </ul>
-        </li>
+        <li><a class="dropdown-item" href="{% url 'faculty_logout' %}">Log Out</a></li>
       </ul>
-      <!-- Modal -->
+    </li>
+  </ul>
+  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="changepassmodal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -69,129 +78,91 @@
       </div>
     </div>
   </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-4 mx-2 my-2">
-      <h1>Admission Details</h1>
-      <b><label for="exampleFormControlInput1" class="form-label">Select Faculty</label></b>
-      <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput1" name="exampleFormControlInput1">
-        <option selected>--Select faculty--</option>
-        <option value="1">Faculty of Commerce & Management</option>
-        <option value="2">Faculty of Humanities</option>
-        <option value="3">Faculty of Interdisciplinary Studies</option>
-        <option value="3">Faculty of Science & Technology</option>
-      </select>
-      <b><label for="exampleFormControlInput2" class="form-label">Select Branch</label></b>
-      <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput2" name="exampleFormControlInput2">
-        <option selected>--Select Branch--</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <b><label for="exampleFormControlInput3" class="form-label">Select Course</label></b>
-      <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput3" name="exampleFormControlInput3">
-        <option selected>--Select Course--</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <div class="my-2">
-      <button type="button" class="btn btn-primary">Primary</button>
-    </div>
-    </div>
-    <div class="col-7 my-2">
-      <h1>Admission List</h1>
-      <b><label for="exampleFormControlInput1" class="form-label">Select Status</label></b>
-      <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput1" name="exampleFormControlInput1">
-        <option selected>--Select Status--</option>
-        <option value="1">All</option>
-        <option value="2">Approved</option>
-        <option value="3">Not Approved</option>
-      </select>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Sr. No.</th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Application ID</th>
-            <th scope="col">Status</th>
-            <th scope="col">View</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for item in data %}
-          <tr>
-            <th scope="row">1</th>
-            <td>{{item.name}}</td>
-            <td>API000000001</td>
-            <td>Approved</td>
-            <td><a href="{% url 'view' %}">Veiw</a></td>
-          </tr>
-          {% endfor %}
-          <tr>
-            <th scope="row">2</th>
-            <td>rahul Santosh Madpache</td>
-            <td>API000000002</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td>Suraj Ravindra Gore</td>
-            <td>API000000003</td>
-            <td>Not Approved</td>
-            <td><a href="#">Veiw</a></td>
-          </tr>
-        </tbody>
-      </table>
+  {% endfor %}
+  <div class="container">
+    <div class="row">
+      <div class="col-4 mx-2 my-2">
+        <h1>Admission Details</h1>
+        <form action="{% url 'get_info' %}">
+        <b><label for="exampleFormControlInput1" class="form-label">Select Faculty</label></b>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput1"
+          name="exampleFormControlInput1">
+          <option selected>--Select faculty--</option>
+          <option value="1">Faculty of Commerce & Management</option>
+          <option value="2">Faculty of Humanities</option>
+          <option value="3">Faculty of Interdisciplinary Studies</option>
+          <option value="3">Faculty of Science & Technology</option>
+        </select>
+        <b><label for="exampleFormControlInput2" class="form-label">Select Branch</label></b>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput2"
+          name="exampleFormControlInput2">
+          <option selected>--Select Branch--</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <b><label for="exampleFormControlInput3" class="form-label">Select Course</label></b>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput3"
+          name="exampleFormControlInput3">
+          <option selected>--Select Course--</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <div class="my-2">
+          <button type="submit" class="btn btn-primary">View</button>
+        </div>
+      </form>
+      </div>
+      <div class="col-7 my-2">
+        <div class="col-4">
+        <h1>Admission List</h1>
+        <b><label for="exampleFormControlInput1" class="form-label">Select Status</label></b>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlInput1"
+          name="exampleFormControlInput1">
+          <option selected>--Select Status--</option>
+          <option value="1">All</option>
+          <option value="2">Approved</option>
+          <option value="3">Not Approved</option>
+        </select>
+        <button type="button" class="btn btn-primary">View</button>
+      
+      </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Application ID</th>
+              <th scope="col">Status</th>
+              <th scope="col">View</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in data %}
+            <tr>
+              <th scope="row">1</th>
+              <td>{{item.fullname}}</td>
+              <td>{{item.email}}</td>
+              <td>Approved</td>
+              <td><a href="{% url 'view' item.id %}">Veiw</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<footer class="page-footer font-small blue">
+  <footer class="page-footer font-small blue">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
       <a href="#"> google.com</a>
     </div>
     <!-- Copyright -->
-  
+
   </footer>
   <!-- Footer -->
 </body>
+
 </html>
