@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: blueviolet;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="nav justify-content-end nav-light bg-light" style="height: 50px;">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Notification</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nikhil
+        Namdeo Telang</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="{%url 'student_logout'%}">Log Out</a></li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <div class="row">
+    <div class="col-2 p-3 bg-light" style="height: 630px; width: 300px;">
+      <ul class="nav flex-column navbar-expand-lg">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'personal_details' id%}">Personal Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'religion_details' id%}">Religion details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'caste_details' id%}">Caste Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'income_details' id%}">Income Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'domicile_details' id%}">Domicile Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'address_details' id%}">Address</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'past_education_details' id%}">Past Education Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'applying_details' id%}">Applying Details</a>
+        </li>
+
+        <!-- As a link -->
+      </ul>
+    </div>
+    <div class="col-9">
+
+
+    <div class="container">
+        <h3>Personal Details</h3>
+        <form method="post" action="{%url 'insert_personal_details' id %}">{% csrf_token %}
+            <input type="hidden" id="uuid" name="uuid" value="{{id}}">
+            <div class="row">
+            {% for item in data %}
+                <div class="col-4 mb-3">
+                    <label for="Aadhar_card_no" class="form-label">Aadhar Card Number</label>
+                    <input type="text" class="form-control  " id="Aadhar_card_no" name="Aadhar_card_no"
+                        value="{{item.aadhar_card_no}}">
+                </div>
+                <div class="col-1 mb-3">
+                    <label for="aadhar_status_btn" class="form-label">Status</label>
+                    <button type="button" class="btn btn-success" name="aadhar_status_btn"
+                        id="aadhar_status_btn">Verified</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="fullname" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" value="{{item.name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="email" class="form-label">Email Id</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{item.email}}">
+                </div>
+                <div class="col-1 mb-3">
+                    <label for="email_status_btn" class="form-label">Status</label>
+                    <button type="button" class="btn btn-success" name="email_status_btn"
+                        id="email_status_btn">Verified</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="mobile" class="form-label">Mobile Number</label>
+                    <input type="text" class="form-control" id="mobile" name="mobile" value="{{item.mobile_no}}">
+                </div>
+                <div class="col-1 mb-3">
+                    <label for="mobile_status_btn" class="form-label">Status</label>
+                    <button type="button" class="btn btn-success" name="mobile_status_btn"
+                        id="mobile_status_btn">Verified</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="dateofbirth" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" id="dateofbirth" name="dateofbirth"
+                        value="{{item.date_of_birth}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="age" name="age" value="{{item.age}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-select" aria-label="Default select example" id="gender" name="gender">
+                        <option selected>--Select Gender--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Applicant_Full_Name_As_Per_SSC_Marksheet" class="form-label">Applicant
+                        Full Name
+                        (As Per
+                        SSC Marksheet/ L.C.)</label>
+                    <input type="text" class="form-control" id="Applicant_Full_Name_As_Per_SSC_Marksheet"
+                        name="Applicant_Full_Name_As_Per_SSC_Marksheet" value="{{item.applicant_fullname}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Guardian_Mobile_No" class="form-label">Parent's/Guardian Mobile
+                        No</label>
+                    <input type="text" class="form-control" id="Guardian_Mobile_No" name="Guardian_Mobile_No"
+                        value="{{item.parent_mobile_no}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Marital_Status" class="form-label">Marital Status</label>
+                    <select class="form-select" aria-label="Default select example" id="Marital_Status"
+                        name="Marital_Status">
+                        <option>--Select Marital Status--</option>.
+                        <option value="{{item.marital_status}}" selected>{{item.marital_status}}
+                        </option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Save & Next</button>
+        </form>
+    </div>
+
+
+</div>
+  </div>
+ 
+  <footer class="page-footer font-small bg-light text-dark" style="height: 100%;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#"> google.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+</html>

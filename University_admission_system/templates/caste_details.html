@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: blueviolet;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="nav justify-content-end nav-light bg-light" style="height: 50px;">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Notification</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nikhil
+        Namdeo Telang</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="{%url 'student_logout'%}">Log Out</a></li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <div class="row">
+    <div class="col-2 p-3 bg-light" style="height: 550px; width: 300px;">
+      <ul class="nav flex-column navbar-expand-lg">
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'personal_details' id%}">Personal Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'religion_details' id%}">Religion details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'caste_details' id%}">Caste Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'income_details' id%}">Income Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'domicile_details' id%}">Domicile Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'address_details' id%}">Address</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'past_education_details' id%}">Past Education Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'applying_details' id%}">Applying Details</a>
+        </li>
+        <!-- As a link -->
+      </ul>
+    </div>
+    <div class="col-9">
+    <div class="container">
+        <h3>Caste Details</h3>
+        <form method="post" action="{% url 'insert_caste_details' id%}">{% csrf_token %}
+        <input type="hidden" id="uuid" name="uuid" value="{{id}}">
+            <div class="row">
+            {% for item in result %}
+                <div class="col-4 mb-3">
+                    <label for="Caste_Category" class="form-label">Caste Category</label>
+                    <select class="form-select" aria-label="Default select example" id="Caste_Category"
+                        name="Caste_Category">
+                        <option selected>{{item.category}}</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="caste" class="form-label">Caste</label>
+                    <select class="form-select" aria-label="Default select example" id="caste" name="caste">
+                        <option selected>{{item.caste}}</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Do_you_have_Caste_Certificate" class="form-label">Do you have Caste
+                        Certificate?</label>
+                    <select class="form-select" aria-label="Default select example" id="Do_you_have_Caste_Certificate" name="Do_you_have_Caste_Certificate">
+                        <option selected>{{item.do_you_have_caste_certificate}}</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Caste_Certificate_Number" class="form-label">Caste Certificate
+                        Number</label>
+                    <input type="text" class="form-control" id="Caste_Certificate_Number"
+                        name="Caste_Certificate_Number" value="{{item.caste_certificate_no}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Issuing_District" class="form-label">Issuing District</label>
+                    <input type="text" class="form-control" id="Issuing_District" name="Issuing_District"
+                        value="{{item.issuing_district}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Applicant_Name" class="form-label">Applicant Name</label>
+                    <input type="text" class="form-control" id="Applicant_Name" name="Applicant_Name"
+                        value="{{item.applicant_name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Issuing_Authority" class="form-label">Issuing Authority</label>
+                    <input type="text" class="form-control" id="Issuing_Authority" name="Issuing_Authority"
+                        value="{{item.issuing_athority}}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Caste_Certificate" class="form-label">Caste Certificate</label>
+                    <input type="file" class="form-control" id="Caste_Certificate" name="Caste_Certificate"
+                        value="{{item.caste_document}}">
+                </div>
+                <div class="col-2 mb-3">
+                    <label for="view_caste_certificate" class="form-label">View Document</label>
+                    <button type="button" class="btn btn-primary" id="view_caste_certificate"
+                        name="view_caste_certificate" >View
+                        Document</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Caste_Issuing_Date" class="form-label">Issuing Date</label>
+                    <input type="date" class="form-control" id="Caste_Issuing_Date" name="Caste_Issuing_Date"
+                        value="{{item.issuing_date}}">
+                </div>
+            </div>
+            <button class="btn btn-primary">Save & Next</button>
+            {% endfor %}
+        </form>
+    </div>
+        </div>
+  </div>
+ 
+  <footer class="page-footer font-small bg-light text-dark" style="height: 100%;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#"> google.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+</body
+</html>
