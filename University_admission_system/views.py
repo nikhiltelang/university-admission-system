@@ -2,10 +2,11 @@ import re
 import io
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, FileResponse
-from University_admission_system.templatetags import CassandraOperation
+from University_admission_system.templatetags import CassandraOperation, EmailOperation, logger, pdfwriter
 import uuid
-from University_admission_system.templatetags.EmailOperation import EmailManagement
 from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+
 cdb = CassandraOperation.CassandraManagement()
 def home(request):
     return render(request,'login.html')
@@ -121,8 +122,9 @@ def insert_religion_data(request,id):
         id = uuid.UUID(strid)
         religion = request.POST.get('religion')
         cdb = CassandraOperation.CassandraManagement()
-        result=cdb.insert_religion_details(id,religion)
-        return render(request,'caste_details.html',{"id":id})
+        cdb.insert_religion_details(id,religion)
+        result = cdb.student_info(id)
+        return render(request,'caste_details.html',{"id":id,"result":result[2]})
 
 def insert_caste_data(request,id):
     if request.method=="POST":
@@ -138,8 +140,9 @@ def insert_caste_data(request,id):
         Caste_Certificate = request.POST.get('Caste_Certificate')
         Caste_Issuing_Date = request.POST.get('Caste_Issuing_Date')
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_caste_details(id,Caste_Category,caste,Do_you_have_Caste_Certificate,Caste_Certificate_Number,Issuing_District,Applicant_Name,Issuing_Authority,Caste_Certificate,Caste_Issuing_Date)
-        return render(request,'income_details.html',{"id":id})
+        cdb.insert_caste_details(id,Caste_Category,caste,Do_you_have_Caste_Certificate,Caste_Certificate_Number,Issuing_District,Applicant_Name,Issuing_Authority,Caste_Certificate,Caste_Issuing_Date)
+        result = cdb.student_info(id)
+        return render(request,'income_details.html',{"id":id,"result":result[3]})
 
 def insert_income_data(request,id):
     if request.method == "POST":
@@ -152,9 +155,9 @@ def insert_income_data(request,id):
         Income_Certificate = request.POST.get('Income_Certificate')
         Income_Issuing_Date = request.POST.get('Income_Issuing_Date')
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_income_details(id,Family_Annual_Income, Do_you_have_Income_Certificate, Income_Certificate_No, Income_Issuing_Authority, Income_Certificate, Income_Issuing_Date)
-        return render(request,'domicile_details.html',{"id":id})
-
+        cdb.insert_income_details(id,Family_Annual_Income, Do_you_have_Income_Certificate, Income_Certificate_No, Income_Issuing_Authority, Income_Certificate, Income_Issuing_Date)
+        result = cdb.student_info(id)
+        return render(request,'domicile_details.html',{"id":id,"result":result[4]})
 def insert_domicile_data(request,id):
     if request.method == "POST":
         strid = request.POST.get('uuid')
@@ -168,8 +171,9 @@ def insert_domicile_data(request,id):
         domicile_Issuing_Date = request.POST.get('domicile_Issuing_Date')
         Domicile_Certificate = request.POST.get('Domicile_Certificate')
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_domicile_details(id,Are_you_Domicile_of_Maharashtra, Do_you_have_Domicile_Certificate,Relationship_Type ,Domicile_Certificate_No, Applicant_Name, Issuing_Authority, domicile_Issuing_Date, Domicile_Certificate)
-        return render(request,'address_details.html',{"id":id})
+        cdb.insert_domicile_details(id,Are_you_Domicile_of_Maharashtra, Do_you_have_Domicile_Certificate,Relationship_Type ,Domicile_Certificate_No, Applicant_Name, Issuing_Authority, domicile_Issuing_Date, Domicile_Certificate)
+        result = cdb.student_info(id)
+        return render(request,'address_details.html',{"id":id,"result":result[5],"result2":result[6]})
 
 def insert_address_data(request,id):
     if request.method == "POST":
@@ -188,8 +192,9 @@ def insert_address_data(request,id):
         cvillage = request.POST.get('cvillage')
         cpincode = request.POST.get('cpincode')
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_address_details(id,paddress,pstate,pdistrict,ptaluka,pvillage,ppincode,caddress,cstate,cdistrict,ctaluka,cvillage,cpincode)
-        return render(request,'past_education_details.html',{"id":id})
+        cdb.insert_address_details(id,paddress,pstate,pdistrict,ptaluka,pvillage,ppincode,caddress,cstate,cdistrict,ctaluka,cvillage,cpincode)
+        result = cdb.student_info(id)
+        return render(request,'past_education_details.html',{"id":id,"result":result[5]})
 
 
 def insert_past_edu_data(request,id):
@@ -214,11 +219,11 @@ def insert_past_edu_data(request,id):
         Upload_Marksheet = request.POST.get('Upload_Marksheet')
 
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_past_edu_details(id,qualification_level,stream,completed,institute_state,institute_district,institute_taluka,college_school_name,course,
+        cdb.insert_past_edu_details(id,qualification_level,stream,completed,institute_state,institute_district,institute_taluka,college_school_name,course,
                                              board_university,mode,Admission_Year,passing_year,result,percentage,Attempts,Upload_Marksheet)
-        
-        print(result)
-        return render(request,'applying_details.html',{"id":id})
+
+        result = cdb.student_info(id)
+        return render(request,'applying_details.html',{"id":id,"result":result[8]})
 
 def insert_applying_data(request,id):
     if request.method == "POST":
@@ -233,7 +238,18 @@ def insert_applying_data(request,id):
         apply_mode = request.POST.get('apply_mode')
         cdb = CassandraOperation.CassandraManagement()
         result = cdb.insert_applying_details(id,apply_course_name, apply_Admission_Type, apply_cet_percentage, apply_cap_id,apply_admission_through,apply_gap_year,apply_mode)
-        return HttpResponse(result)
+
+        pdf = pdfwriter.pdf()
+        file = pdf.pdfwriter()
+
+        buffer = io.BytesIO()
+        # p = canvas.Canvas(buffer)
+        # p.drawString(100, 500, "Hello Nikhil")
+        # p.rect(inch, inch, 6 * inch, inch)
+        # p.showPage()
+        # p.save()
+        # buffer.seek(0)
+        return FileResponse(buffer, as_attachment=True, filename=file)
 
 def personal_details(request,id):
     cdb = CassandraOperation.CassandraManagement()
@@ -248,7 +264,6 @@ def religion_details(request,id):
 def caste_details(request,id):
     cdb = CassandraOperation.CassandraManagement()
     result = cdb.student_info(id)
-    
     return render(request,'caste_details.html',{"id":id,"result":result[2]})
 
 def income_details(request,id):
@@ -277,7 +292,7 @@ def applying_details(request,id):
     return render(request,'applying_details.html',{"id":id,"result":result[7]})
 
 def approvedbyfaculty(request):
-    mail = EmailManagement()
+    mail = EmailOperation.EmailManagement()
     # result = mail.sendEmail('nikhiltelang70@gmail.com','nikhiltelang34@gmail.com','hello Niikhil')
     return render(request,'view.html')
 
@@ -314,8 +329,9 @@ def convertToBinaryData(filename):
 def some_view(request):
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer)
-    p.drawString(100, 100, "Hello world.")
+    p.drawString(0, 0, "Hello world.")
+    p.rect(inch, inch, 6 * inch, 9 * inch, fill=1)
     p.showPage()
     p.save()
     buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
+    return FileResponse(buffer, as_attachment=False, filename='hello.pdf')

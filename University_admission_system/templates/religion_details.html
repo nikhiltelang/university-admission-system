@@ -32,9 +32,6 @@
     <li class="nav-item">
       <a class="nav-link" href="#">Notification</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nikhil
         Namdeo Telang</a>
@@ -54,32 +51,30 @@
   <div class="row">
     <div class="col-2 p-3 bg-light" style="height: 550px; width: 300px;">
       <ul class="nav flex-column navbar-expand-lg">
-        {% for i in result %}
         <li class="nav-item">
-          <a class="nav-link active" href="{%url 'personal_details' i.id%}">Personal Details</a>
+          <a class="nav-link active" href="{%url 'personal_details' id%}">Personal Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'religion_details' i.id%}">Religion details</a>
+          <a class="nav-link" href="{%url 'religion_details' id%}">Religion details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'caste_details' i.id%}">Caste Details</a>
+          <a class="nav-link" href="{%url 'caste_details' id%}">Caste Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'income_details' i.id%}">Income Details</a>
+          <a class="nav-link" href="{%url 'income_details' id%}">Income Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'domicile_details' i.id%}">Domicile Details</a>
+          <a class="nav-link" href="{%url 'domicile_details' id%}">Domicile Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'address_details' i.id%}">Address</a>
+          <a class="nav-link" href="{%url 'address_details' id%}">Address</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'past_education_details' i.id%}">Past Education Details</a>
+          <a class="nav-link" href="{%url 'past_education_details' id%}">Past Education Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'applying_details' i.id%}">Applying Details</a>
+          <a class="nav-link" href="{%url 'applying_details' id%}">Applying Details</a>
         </li>
-        {% endfor %}
         <!-- As a link -->
       </ul>
     </div>
