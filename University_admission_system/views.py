@@ -237,9 +237,9 @@ def insert_applying_data(request,id):
         apply_gap_year = request.POST.get('apply_gap_year')
         apply_mode = request.POST.get('apply_mode')
         cdb = CassandraOperation.CassandraManagement()
-        result = cdb.insert_applying_details(id,apply_course_name, apply_Admission_Type, apply_cet_percentage, apply_cap_id,apply_admission_through,apply_gap_year,apply_mode)
+        cdb.insert_applying_details(id,apply_course_name, apply_Admission_Type, apply_cet_percentage, apply_cap_id,apply_admission_through,apply_gap_year,apply_mode)
 
-        pdf = pdfwriter.pdf()
+        pdf = pdfwriter.pdf(id)
         file = pdf.pdfwriter()
 
         buffer = io.BytesIO()
